@@ -3,6 +3,7 @@ let listaAmigos = [];
 let listaSorteio = [];
 let listaAmigosIncluidos = document.getElementById('friends_lista_container');
 let listaSorteioRealizado = document.getElementById('container-resultado');
+let elementodeListagem;
 let numeroSorteado;
 
 //adicionar amigo na lista
@@ -23,8 +24,6 @@ function adicionarAmigosNaLista() {
 
 //listar amigos participantes do sorteio
 function adicionarNomeNaLista() {
-    let elementodeListagem;
-   
     elementodeListagem = document.createElement('p');
     elementodeListagem.id = `lista-amigos-${listaAmigos.length - 1}`;
     elementodeListagem.textContent = `${listaAmigos.length} - ${listaAmigos[listaAmigos.length - 1]}`;
