@@ -8,16 +8,18 @@ let numeroSorteado;
 
 //adicionar amigo na lista
 function adicionar() {
-
-    adicionarAmigosNaLista();
-    adicionarNomeNaLista();
-
+    if (nomeAmigo.value == '') {
+        alert('Por favor, informe um nome para inclusão na lista;');
+    } else if(listaAmigos.includes(nomeAmigo.value)) {
+        alert('Nome ja existente na lista, Por favor, informe um nome não repetido!');
+    } else {
+        adicionarAmigosNaLista();
+        adicionarNomeNaLista();
+    }
 }
 
 //Adicionar amigos na lista
 function adicionarAmigosNaLista() {
-    nomeAmigo = document.getElementById('nome-amigo');
-
     listaAmigos[listaAmigos.length] = nomeAmigo.value;
     nomeAmigo.value = "";
 }
@@ -32,6 +34,10 @@ function adicionarNomeNaLista() {
 
 //sortear amigo secreto
 function sortear() {
+    if (listaAmigos.length < 4) {
+        alert(`Não é possivel realizar o sorteio com menos de 4 pessoas. Voce selecionou até o momento ${listaAmigos.length} amigos.`);
+        return
+    }
     for (let index = 0; index < listaAmigos.length; index++) {
         listaSorteio[index] = sortearAmigo();
     }
